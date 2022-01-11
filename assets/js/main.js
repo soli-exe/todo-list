@@ -21,9 +21,15 @@ todoList.addEventListener('click', (e) => { deleteOrCompleteItem(e.target) });
 filters.addEventListener('click', (e) => { filterItems(e.target) });
 clearbtn.addEventListener('click', clearAllCompletedItems);
 document.addEventListener('DOMContentLoaded', run);
-
+window.addEventListener('resize', ()=> {
+    const items = document.querySelectorAll(".item");
+    items.forEach(item => {
+        item.childNodes[1].innerText = isolateItemName(item.innerText);
+    });
+});
 
 function createItemElement(todo) {
+    const isolatedTodoTitle = isolateItemName(todo.value);
     const li = document.createElement('li');
     const checkSpan = document.createElement('span');
     const todoValueSpan = document.createElement('span');
@@ -41,7 +47,7 @@ function createItemElement(todo) {
     crossIcon.className = 'cross-icon';
     crossIcon.src = './assets/icons/icon-cross.svg';
     if (todo.value !== '') {
-        todoValueSpan.innerText = todo.value;
+        todoValueSpan.innerText = isolatedTodoTitle;
         li.appendChild(checkSpan);
         li.appendChild(todoValueSpan);
         li.appendChild(crossIcon);
@@ -112,6 +118,15 @@ function deleteOrCompleteItem(e) {
         e.classList.toggle('completed');
         e.parentElement.classList.toggle('incomplete');
         e.parentElement.classList.toggle('complete');
+    }
+}
+
+function isolateItemName(todoValue) {
+    if (window.innerWidth < 768){
+        return todoValue.length > 35 ? todoValue.substr().substring(0 , 30) + "..." : todoValue;
+    } 
+    if (window.innerWidth > 768) {
+        return todoValue.length > 55 ? todoValue.substr().substring(0 , 50) + "..." : todoValue;
     }
 }
 
