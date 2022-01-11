@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="shortcut icon" href="./assets/icons/favicon.png" type="image/x-icon">
+    <title>Todo</title>
+  </head>
+  <body id="bgImg">
+    <header class="header">
+      <h2 class="title">TODO</h2>
+      <button class="theme-toggler" id="themeToggler">
+        <img
+          id="togglerIcon"
+          src="./assets/icons/icon-moon.svg"
+          alt="moon icon"
+        />
+      </button>
+    </header>
+    <div class="container">
+      <div class="add-todo-form">
+        <input class="todo-input" type="text" placeholder="Create new todo" />
+        <button class="add-btn">
+          <img src="./assets/icons/plus.svg" alt="add todo" />
+        </button>
+      </div>
+      <ul id="list">
+        <li class="msg">No Todos!</li>
+      </ul>
+      <div class="info-sec">
+        <span id="itemsCount">0 Item</span>
+        <span id="clearBtn">Clear completed items</span>
+      </div>
+      <div class="panel">
+        <ul class="filters-sec">
+          <li class="filter active-filter">All</li>
+          <li class="filter">Active</li>
+          <li class="filter">Completed</li>
+        </ul>
+        <p class="help">Drag and Drop to reorder the list</p>
+      </div>
+    </div>
+    <script src="./assets/js/theme-toggle.js"></script>
+    <script type="module" src="./assets/js/main.js"></script>
+    <script type="module" src="./assets/js/dragDrap.js"></script>
+  </body>
+</html>

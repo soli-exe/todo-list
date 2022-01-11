@@ -1,0 +1,242 @@
+@import url("https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: "Yanone Kaffeesatz";
+  letter-spacing: .07rem;
+}
+
+:root {
+  --primary-color: rgb(219, 219, 219);
+  --secondary-color: rgb(33, 37, 41);
+  --font-color:rgb(45, 47, 49);
+  --font-color-light: rgb(236, 236, 236);
+  --bg-color: rgb(220, 204, 250);
+  --font-active: rgb(0, 110, 255);
+  --drag-over-color: rgb(0, 68, 255);
+
+}
+
+[data-theme = "dark"]{
+  --primary-color: #252942;
+  --secondary-color: rgb(194, 208, 223);
+  --font-color:#c8cadf;
+  --bg-color: #0f1420;
+  --drag-over-color: rgb(0, 255, 255);
+}
+
+#bgImg {
+  background-image: url("/assets/img/bg-mobile-light.jpg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  background-color: var(--bg-color);
+}
+
+.header {
+  position: absolute;
+  top: 4rem;
+  width: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 2.5rem;
+  letter-spacing: 1rem;
+  color: var(--font-color-light);
+}
+
+.theme-toggler {
+  background: unset;
+  border: none;
+  cursor: pointer;
+}
+.container {
+  position: absolute;
+  top: 8rem;
+  width: 20rem;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.add-todo-form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.todo-input {
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  outline: none;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  border: none;
+  color: var(--font-color);
+}
+
+.add-btn {
+  position: absolute;
+  right: 1rem;
+  display: flex;
+  border: none;
+  padding: 3px;
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.icon {
+  width: 1.5rem;
+}
+
+#list {
+  display: block;
+  width: 100%;
+  border-radius: 5px;
+  margin: 1rem 0 0 0;
+  max-height: 18rem;
+  overflow: auto;
+  flex-direction: column;
+  background: var(--primary-color);
+}
+
+#list::-webkit-scrollbar-track
+{
+	--webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: var(--primary-color);
+}
+
+#list::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: #F5F5F5;
+}
+
+#list::-webkit-scrollbar-thumb
+{
+  border-radius: 5px;
+	background-color: var(--secondary-color);
+}
+
+.item {
+  width: 100%;
+  font-size: 1.1rem;
+  display: flex;
+  padding: 0.9rem;
+  align-items: center;
+  color: var(--font-color);
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+.check {
+  background: unset;
+  border: 1px solid var(--secondary-color);
+  border-radius: 50px;
+  display: flex;
+  margin-right: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+
+.completed {
+  content: url('/assets/icons/icon-check.svg');
+  background: linear-gradient(37deg, rgba(96,30,224,1) 40%, rgba(171,106,255,1) 100%);
+}
+
+
+.cross-icon {
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.msg {
+  display: block;
+  padding: 1rem;
+  border-radius: 5px 5px 0 0;
+  text-align: center;
+  background-color: var(--primary-color);
+  font-weight: bold;
+  font-size: 1.567rem;
+  border-bottom: 1px solid var(--secondary-color);
+  color: var(--font-color);
+}
+
+.panel {
+  display: block;
+  text-align: center;
+  font-size: 1.09rem;
+  color: var(--font-color);
+}
+
+.info-sec {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  border-radius:5px;
+  color: var(--font-color);
+  background-color: var(--primary-color);
+}
+
+.filters-sec {
+  display: flex;
+  margin: 2rem 0;
+  justify-content: space-evenly;
+  background-color: var(--primary-color);
+  padding: .9rem ;
+  border-radius: 5px;
+}
+
+.filter{
+  width: 3rem;
+}
+
+.filter,
+#clearBtn {
+  cursor: pointer;
+  padding: 2px;
+  font-weight: 600;
+}
+
+.filter:hover,
+#clearBtn:hover{
+  color: var(--font-active) ;
+}
+
+.active-filter{
+  color: var(--font-active);
+}
+
+.help {
+  opacity: 70%;
+}
+
+.drag-over {
+  border-top: 3px solid var(--drag-over-color);
+}
+
+@media only screen and (min-width: 768px) {
+  #bgImg {
+    background-image: url("/assets/img/bg-desktop-light.jpg");
+    background-repeat: no-repeat;
+  }
+  .header,
+  .container{
+    width: 30rem;
+  }
+}
