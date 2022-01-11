@@ -90,7 +90,7 @@ body {
 
 .add-btn {
   position: absolute;
-  right: 1rem;
+  right: .5rem;
   display: flex;
   border: none;
   padding: 3px;
